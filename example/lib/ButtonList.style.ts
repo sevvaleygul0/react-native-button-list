@@ -11,8 +11,23 @@ interface Style {
   imageStyle: ImageStyle;
   contentContainerStyle: ViewStyle;
   imageComponent: ViewStyle;
-  itemContainer: ViewStyle;
+  itemShadowContainer: ViewStyle;
+  itemTextStyle: ViewStyle;
 }
+
+export const _itemContainer = (
+  backgroundColor: string,
+  isActive: string,
+): ViewStyle => ({
+  backgroundColor,
+  marginLeft: 8,
+  marginRight: 8,
+  borderRadius: 16,
+  height: 150,
+  width: 150,
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
 export default StyleSheet.create<Style>({
   contentContainerStyle: {
@@ -20,19 +35,23 @@ export default StyleSheet.create<Style>({
     alignItems: 'center',
   },
   imageStyle: {
-    height: 90,
-    width: 90,
+    height: 70,
+    width: 70,
     borderRadius: 16,
   },
   imageComponent: {},
-  itemContainer: {
-    marginLeft: 4,
-    marginRight: 4,
-    borderRadius: 16,
-    height: 150,
-    width: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
+  itemShadowContainer: {
+    shadowColor: '#AAAAAA',
+    shadowOffset: {
+      width: 1,
+      height: 3,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  itemTextStyle: {
+    marginTop: 8,
+    color: '#BF8B5A',
+    fontSize: 13,
   },
 });

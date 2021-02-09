@@ -7,22 +7,38 @@ const App = () => {
     {
       id: 0,
       imageSource: require('./assets/butterfly.png'),
+      backgroundColor: '#FCFCFC',
       label: 'Butterfly',
     },
     {
       id: 1,
       imageSource: require('./assets/cactus.png'),
+      backgroundColor: '#FCFCFC',
       label: 'Cactus',
     },
     {
       id: 2,
       imageSource: require('./assets/mushroom.png'),
+      backgroundColor: '#FCFCFC',
       label: 'Mushroom',
     },
     {
       id: 3,
       imageSource: require('./assets/rainbow.png'),
+      backgroundColor: '#FCFCFC',
       label: 'Rainbow',
+    },
+    {
+      id: 4,
+      imageSource: require('./assets/tree.png'),
+      backgroundColor: '#FCFCFC',
+      label: 'Tree',
+    },
+    {
+      id: 5,
+      imageSource: require('./assets/snowing.png'),
+      backgroundColor: '#FCFCFC',
+      label: 'Snowing',
     },
   ];
   return (
@@ -30,7 +46,7 @@ const App = () => {
       style={{
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#FCFCFC',
       }}>
       <ButtonList buttonListData={buttonListData} />
     </SafeAreaView>
