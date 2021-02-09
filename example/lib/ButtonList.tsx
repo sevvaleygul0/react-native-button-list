@@ -50,8 +50,6 @@ const ButtonList = (props: IButtonListProps) => {
     imageHeight,
   } = props;
 
-  // const [cardState, setCardState] = React.useState(true);
-
   const renderImageComponent = (imageSource: any) => (
     <View style={imageComponent || styles.imageComponent}>
       <Image
@@ -85,6 +83,7 @@ const ButtonList = (props: IButtonListProps) => {
     <SafeAreaView>
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={
           contentContainerStyle || styles.contentContainerStyle
         }

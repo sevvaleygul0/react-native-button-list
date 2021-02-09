@@ -89,6 +89,50 @@ const App = () => {
       label: 'Cat',
     },
   ];
+
+  const buttonListData3 = [
+    {
+      id: 0,
+      imageSource: {
+        uri:
+          'https://cdn.dribbble.com/users/371094/screenshots/11040235/media/ef7bd2ad76f2d818b7c01732e6e030d7.jpg?compress=1&resize=1600x1200',
+      },
+      backgroundColor: '#FCFCFC',
+    },
+    {
+      id: 1,
+      imageSource: {
+        uri:
+          'https://cdn.dribbble.com/users/371094/screenshots/11040235/media/14ec601a4540b61d1abe309ce0bf08dd.jpg?compress=1&resize=1600x1200',
+      },
+      backgroundColor: '#FCFCFC',
+    },
+    {
+      id: 2,
+      imageSource: {
+        uri:
+          'https://cdn.dribbble.com/users/371094/screenshots/11040235/media/304fe208554e7cc25d8ae16237b24b7a.jpg?compress=1&resize=1600x1200',
+      },
+      backgroundColor: '#FCFCFC',
+    },
+    {
+      id: 3,
+      imageSource: {
+        uri:
+          'https://cdn.dribbble.com/users/371094/screenshots/11040235/media/68afe1e2cc082a6c50d871648824c415.jpg?compress=1&resize=1600x1200',
+      },
+      backgroundColor: '#FCFCFC',
+    },
+    {
+      id: 4,
+      imageSource: {
+        uri:
+          'https://cdn.dribbble.com/users/371094/screenshots/11040235/media/d2ed0ada19b6fb15bcf3baf75f33b091.jpg?compress=1&resize=1600x1200',
+      },
+      backgroundColor: '#FCFCFC',
+    },
+  ];
+
   return (
     <SafeAreaView
       style={{
@@ -113,6 +157,19 @@ const App = () => {
           height={90}
           imageWidth={45}
           imageHeight={45}
+        />
+      </View>
+      <View style={{height: 200, alignItems: 'center', marginTop: 24}}>
+        <Text style={{fontSize: 24, color: '#D68D42', fontWeight: '600'}}>
+          Example 3
+        </Text>
+        <ButtonList
+          buttonListData={buttonListData3}
+          textDisable={true}
+          width={80}
+          height={80}
+          imageWidth={60}
+          imageHeight={60}
         />
       </View>
     </SafeAreaView>
