@@ -8,24 +8,28 @@ const App = () => {
       id: 0,
       imageSource: require('./assets/butterfly.png'),
       backgroundColor: '#FCFCFC',
+      textColor: '#BF8B5A',
       label: 'Butterfly',
     },
     {
       id: 1,
       imageSource: require('./assets/cactus.png'),
       backgroundColor: '#FCFCFC',
+      textColor: '#BF8B5A',
       label: 'Cactus',
     },
     {
       id: 2,
       imageSource: require('./assets/mushroom.png'),
       backgroundColor: '#FCFCFC',
+      textColor: '#BF8B5A',
       label: 'Mushroom',
     },
     {
       id: 3,
       imageSource: require('./assets/rainbow.png'),
       backgroundColor: '#FCFCFC',
+      textColor: '#BF8B5A',
       label: 'Rainbow',
     },
     {
@@ -38,6 +42,7 @@ const App = () => {
       id: 5,
       imageSource: require('./assets/snowing.png'),
       backgroundColor: '#FCFCFC',
+      textColor: '#BF8B5A',
       label: 'Snowing',
     },
   ];

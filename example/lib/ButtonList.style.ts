@@ -12,7 +12,6 @@ interface Style {
   contentContainerStyle: ViewStyle;
   imageComponent: ViewStyle;
   itemShadowContainer: ViewStyle;
-  itemTextStyle: ViewStyle;
 }
 
 export const _itemContainer = (
@@ -27,6 +26,12 @@ export const _itemContainer = (
   width: 150,
   justifyContent: 'center',
   alignItems: 'center',
+});
+
+export const _itemTextStyle = (color: string): TextStyle => ({
+  marginTop: 8,
+  color,
+  fontSize: 13,
 });
 
 export default StyleSheet.create<Style>({
@@ -48,10 +53,5 @@ export default StyleSheet.create<Style>({
     },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-  },
-  itemTextStyle: {
-    marginTop: 8,
-    color: '#BF8B5A',
-    fontSize: 13,
   },
 });
