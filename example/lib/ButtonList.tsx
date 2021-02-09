@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   Text,
   View,
@@ -10,7 +10,11 @@ import {
   TextStyle,
   ImageStyle,
 } from 'react-native';
-import styles, {_itemContainer, _itemTextStyle} from './ButtonList.style';
+import styles, {
+  _itemContainer,
+  _itemTextStyle,
+  _imageStyle,
+} from './ButtonList.style';
 import RNBounceable from '@freakycoder/react-native-bounceable';
 import Androw from 'react-native-androw';
 
@@ -26,9 +30,10 @@ interface IButtonListProps {
   itemContainer?: CustomViewStyleProp;
   textDisable?: boolean;
   textStyle?: CustomTextStyleProp;
-}
-interface IState {
-  selectedItem: string;
+  width?: number;
+  height?: number;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const ButtonList = (props: IButtonListProps) => {
@@ -39,18 +44,25 @@ const ButtonList = (props: IButtonListProps) => {
     itemContainer,
     textDisable,
     textStyle,
+    width,
+    height,
+    imageWidth,
+    imageHeight,
   } = props;
 
   // const [cardState, setCardState] = React.useState(true);
 
   const renderImageComponent = (imageSource: any) => (
     <View style={imageComponent || styles.imageComponent}>
-      <Image style={styles.imageStyle} source={imageSource} />
+      <Image
+        style={_imageStyle(imageWidth, imageHeight)}
+        source={imageSource}
+      />
     </View>
   );
 
   const renderTextComponent = (item: any) => (
-    <Text style={_itemTextStyle(item.textColor) || textStyle}>
+    <Text style={_itemTextStyle(item.textColor || '#BF8B5A') || textStyle}>
       {item.label}
     </Text>
   );
@@ -59,7 +71,9 @@ const ButtonList = (props: IButtonListProps) => {
     <Androw style={styles.itemShadowContainer}>
       <RNBounceable onPress={() => {}}>
         <View
-          style={itemContainer || _itemContainer(item.backgroundColor, 'true')}>
+          style={
+            itemContainer || _itemContainer(item.backgroundColor, width, height)
+          }>
           {renderImageComponent(item.imageSource)}
           {!textDisable && renderTextComponent(item)}
         </View>
@@ -81,5 +95,11 @@ const ButtonList = (props: IButtonListProps) => {
     </SafeAreaView>
   );
 };
-ButtonList.defaultProps = {textDisable: false};
+ButtonList.defaultProps = {
+  textDisable: false,
+  width: 150,
+  height: 150,
+  imageWidth: 70,
+  imageHeight: 70,
+};
 export default ButtonList;

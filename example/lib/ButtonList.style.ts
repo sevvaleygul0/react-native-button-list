@@ -8,7 +8,6 @@ import {
 const {width: ScreenWidth, height: ScreenHeight} = Dimensions.get('window');
 
 interface Style {
-  imageStyle: ImageStyle;
   contentContainerStyle: ViewStyle;
   imageComponent: ViewStyle;
   itemShadowContainer: ViewStyle;
@@ -16,14 +15,15 @@ interface Style {
 
 export const _itemContainer = (
   backgroundColor: string,
-  isActive: string,
+  width: number,
+  height: number,
 ): ViewStyle => ({
   backgroundColor,
   marginLeft: 8,
   marginRight: 8,
   borderRadius: 16,
-  height: 150,
-  width: 150,
+  height,
+  width,
   justifyContent: 'center',
   alignItems: 'center',
 });
@@ -34,16 +34,18 @@ export const _itemTextStyle = (color: string): TextStyle => ({
   fontSize: 13,
 });
 
+export const _imageStyle = (width: number, height: number): ImageStyle => ({
+  height,
+  width,
+  borderRadius: 16,
+});
+
 export default StyleSheet.create<Style>({
   contentContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  imageStyle: {
-    height: 70,
-    width: 70,
-    borderRadius: 16,
-  },
+
   imageComponent: {},
   itemShadowContainer: {
     shadowColor: '#AAAAAA',
