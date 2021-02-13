@@ -34,6 +34,8 @@ interface IButtonListProps {
   height?: number;
   imageWidth?: number;
   imageHeight?: number;
+  selectedId?: number;
+  selectedBackgroundColor?: string;
 }
 
 const ButtonList = (props: IButtonListProps) => {
@@ -48,7 +50,12 @@ const ButtonList = (props: IButtonListProps) => {
     height,
     imageWidth,
     imageHeight,
+    selectedId,
+    selectedBackgroundColor,
   } = props;
+
+  const [selectedItem, setSelectedItem] = React.useState(selectedId);
+  const [isActive, setIsActive] = React.useState(false);
 
   const renderImageComponent = (imageSource: any) => (
     <View style={imageComponent || styles.imageComponent}>
@@ -65,19 +72,30 @@ const ButtonList = (props: IButtonListProps) => {
     </Text>
   );
 
-  const renderItem = (item: any) => (
-    <Androw style={styles.itemShadowContainer}>
-      <RNBounceable onPress={() => {}}>
-        <View
-          style={
-            itemContainer || _itemContainer(item.backgroundColor, width, height)
-          }>
-          {renderImageComponent(item.imageSource)}
-          {!textDisable && renderTextComponent(item)}
-        </View>
-      </RNBounceable>
-    </Androw>
-  );
+  const renderItem = (item: any) => {
+    let isActive;
+    let backgroundColor: string = item.backgroundColor;
+    if (selectedItem === item.id) {
+      isActive = !isActive;
+      backgroundColor = selectedBackgroundColor || '#9F90FA';
+    }
+    return (
+      <Androw style={styles.itemShadowContainer}>
+        <RNBounceable
+          onPress={() => {
+            setSelectedItem(item.id);
+          }}>
+          <View
+            style={
+              itemContainer || _itemContainer(backgroundColor, width, height)
+            }>
+            {renderImageComponent(item.imageSource)}
+            {!textDisable && renderTextComponent(item)}
+          </View>
+        </RNBounceable>
+      </Androw>
+    );
+  };
 
   return (
     <SafeAreaView>

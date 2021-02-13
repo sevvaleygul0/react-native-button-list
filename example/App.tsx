@@ -144,7 +144,11 @@ const App = () => {
         <Text style={{fontSize: 24, color: '#FECFB5', fontWeight: '600'}}>
           Example 1
         </Text>
-        <ButtonList buttonListData={buttonListData} />
+        <ButtonList
+          selectedBackgroundColor="#9F90FA"
+          buttonListData={buttonListData}
+          // selectedId={buttonListData[0]}
+        />
       </View>
 
       <View style={{height: 200, alignItems: 'center', marginTop: 24}}>
