@@ -1,7 +1,7 @@
 export interface IButtonList {
   backgroundColor?: string;
   id: number;
-  imageSource: number;
+  imageSource: any;
   label?: string;
   textColor?: string;
 }

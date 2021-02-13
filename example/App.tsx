@@ -143,18 +143,14 @@ const App = () => {
       }}>
       <View style={{height: 200, alignItems: 'center', marginTop: 24}}>
         <Text style={{fontSize: 24, color: '#FECFB5', fontWeight: '600'}}>
-          Example 1
+          Button List 1
         </Text>
-        <ButtonList
-          initialSelectedItem={0}
-          selectedBackgroundColor="#C7BEFF"
-          buttonListData={buttonListData}
-        />
+        <ButtonList initialSelectedItem={0} buttonListData={buttonListData} />
       </View>
 
       <View style={{height: 200, alignItems: 'center', marginTop: 24}}>
-        <Text style={{fontSize: 24, color: '#FFDDB0', fontWeight: '600'}}>
-          Example 2
+        <Text style={{fontSize: 24, color: '#F4AA3F', fontWeight: '600'}}>
+          Button List 2
         </Text>
         <ButtonList
           buttonListData={buttonListData2}
@@ -162,14 +158,16 @@ const App = () => {
           height={90}
           imageWidth={45}
           imageHeight={45}
+          selectedBackgroundColor="#FE484A"
         />
       </View>
       <View style={{height: 200, alignItems: 'center', marginTop: 24}}>
         <Text style={{fontSize: 24, color: '#D68D42', fontWeight: '600'}}>
-          Example 3
+          Button List 3
         </Text>
         <ButtonList
           buttonListData={buttonListData3}
+          selectedBackgroundColor="#FFD9B3"
           textDisable={true}
           width={80}
           height={80}

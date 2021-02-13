@@ -73,7 +73,7 @@ const ButtonList = (props: IButtonListProps) => {
   );
 
   const renderTextComponent = (item: IButtonList) => (
-    <Text style={_itemTextStyle(item.textColor || '#BF8B5A') || textStyle}>
+    <Text style={textStyle || _itemTextStyle(item.textColor || '#BF8B5A')}>
       {item.label}
     </Text>
   );
@@ -116,7 +116,7 @@ const ButtonList = (props: IButtonListProps) => {
         }
         data={buttonListData}
         renderItem={(item) => renderItem(item.item)}
-        keyExtractor={(item: IButtonList, index: number) => item.id.toString()}
+        keyExtractor={(item: IButtonList) => item.id.toString()}
       />
     </SafeAreaView>
   );
