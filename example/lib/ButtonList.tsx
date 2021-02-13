@@ -14,9 +14,12 @@ import styles, {
   _itemContainer,
   _itemTextStyle,
   _imageStyle,
+  _itemShadowContainer,
 } from './ButtonList.style';
 import RNBounceable from '@freakycoder/react-native-bounceable';
 import Androw from 'react-native-androw';
+
+import {IButtonList} from './models/Model';
 
 type CustomViewStyleProp = StyleProp<ViewStyle> | Array<StyleProp<ViewStyle>>;
 type CustomTextStyleProp = StyleProp<TextStyle> | Array<StyleProp<TextStyle>>;
@@ -24,7 +27,7 @@ type CustomImageStyleProp =
   | StyleProp<ImageStyle>
   | Array<StyleProp<ImageStyle>>;
 interface IButtonListProps {
-  buttonListData: any;
+  buttonListData: Array<IButtonList>;
   contentContainerStyle?: CustomViewStyleProp;
   imageComponent?: CustomImageStyleProp;
   itemContainer?: CustomViewStyleProp;
@@ -34,8 +37,10 @@ interface IButtonListProps {
   height?: number;
   imageWidth?: number;
   imageHeight?: number;
-  selectedId?: number;
+  initialSelectedItem?: number;
   selectedBackgroundColor?: string;
+  onPress?: (item) => void;
+  onChange?: (item) => void;
 }
 
 const ButtonList = (props: IButtonListProps) => {
@@ -50,12 +55,13 @@ const ButtonList = (props: IButtonListProps) => {
     height,
     imageWidth,
     imageHeight,
-    selectedId,
+    initialSelectedItem,
     selectedBackgroundColor,
+    onPress,
+    onChange,
   } = props;
 
-  const [selectedItem, setSelectedItem] = React.useState(selectedId);
-  const [isActive, setIsActive] = React.useState(false);
+  const [selectedItem, setSelectedItem] = React.useState(initialSelectedItem);
 
   const renderImageComponent = (imageSource: any) => (
     <View style={imageComponent || styles.imageComponent}>
@@ -66,24 +72,27 @@ const ButtonList = (props: IButtonListProps) => {
     </View>
   );
 
-  const renderTextComponent = (item: any) => (
+  const renderTextComponent = (item: IButtonList) => (
     <Text style={_itemTextStyle(item.textColor || '#BF8B5A') || textStyle}>
       {item.label}
     </Text>
   );
 
-  const renderItem = (item: any) => {
-    let isActive;
+  const renderItem = (item: IButtonList) => {
+    let isActive: boolean;
     let backgroundColor: string = item.backgroundColor;
     if (selectedItem === item.id) {
-      isActive = !isActive;
-      backgroundColor = selectedBackgroundColor || '#9F90FA';
+      isActive = true;
+      backgroundColor = selectedBackgroundColor || '#C7BEFF';
     }
+
     return (
-      <Androw style={styles.itemShadowContainer}>
+      <Androw style={_itemShadowContainer(isActive)}>
         <RNBounceable
           onPress={() => {
             setSelectedItem(item.id);
+            onPress && onPress(item);
+            onChange && onChange(item);
           }}>
           <View
             style={
@@ -107,7 +116,7 @@ const ButtonList = (props: IButtonListProps) => {
         }
         data={buttonListData}
         renderItem={(item) => renderItem(item.item)}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item: IButtonList, index: number) => item.id.toString()}
       />
     </SafeAreaView>
   );

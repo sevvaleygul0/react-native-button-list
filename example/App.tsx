@@ -6,41 +6,42 @@ const App = () => {
   const buttonListData = [
     {
       id: 0,
-      imageSource: require('./assets/butterfly.png'),
+
+      imageSource: require('./lib/assets/butterfly.png'),
       backgroundColor: '#FDFAED',
       textColor: '#BF8B5A',
       label: 'Butterfly',
     },
     {
       id: 1,
-      imageSource: require('./assets/cactus.png'),
+      imageSource: require('./lib/assets/cactus.png'),
       backgroundColor: '#DDF8EA',
       textColor: '#BF8B5A',
       label: 'Cactus',
     },
     {
       id: 2,
-      imageSource: require('./assets/mushroom.png'),
+      imageSource: require('./lib/assets/mushroom.png'),
       backgroundColor: '#E4EEF4',
       textColor: '#BF8B5A',
       label: 'Mushroom',
     },
     {
       id: 3,
-      imageSource: require('./assets/rainbow.png'),
+      imageSource: require('./lib/assets/rainbow.png'),
       backgroundColor: '#FFF3EA',
       textColor: '#BF8B5A',
       label: 'Rainbow',
     },
     {
       id: 4,
-      imageSource: require('./assets/tree.png'),
+      imageSource: require('./lib/assets/tree.png'),
       backgroundColor: '#EAFFF2',
       label: 'Tree',
     },
     {
       id: 5,
-      imageSource: require('./assets/snowing.png'),
+      imageSource: require('./lib/assets/snowing.png'),
       backgroundColor: '#EDF7FD',
       textColor: '#BF8B5A',
       label: 'Snowing',
@@ -145,9 +146,9 @@ const App = () => {
           Example 1
         </Text>
         <ButtonList
-          selectedBackgroundColor="#9F90FA"
+          initialSelectedItem={0}
+          selectedBackgroundColor="#C7BEFF"
           buttonListData={buttonListData}
-          // selectedId={buttonListData[0]}
         />
       </View>
 

@@ -4,13 +4,13 @@ import {
   TextStyle,
   StyleSheet,
   Dimensions,
+  View,
 } from 'react-native';
 const {width: ScreenWidth, height: ScreenHeight} = Dimensions.get('window');
 
 interface Style {
   contentContainerStyle: ViewStyle;
   imageComponent: ViewStyle;
-  itemShadowContainer: ViewStyle;
 }
 
 export const _itemContainer = (
@@ -40,6 +40,16 @@ export const _imageStyle = (width: number, height: number): ImageStyle => ({
   borderRadius: 16,
 });
 
+export const _itemShadowContainer = (isActive: boolean): ViewStyle => ({
+  shadowColor: isActive ? '#E4E0FF' : '#AAAAAA',
+  shadowOffset: {
+    width: 3,
+    height: 5,
+  },
+  shadowOpacity: isActive ? 0.9 : 0.2,
+  shadowRadius: 4,
+});
+
 export default StyleSheet.create<Style>({
   contentContainerStyle: {
     justifyContent: 'center',
@@ -47,13 +57,4 @@ export default StyleSheet.create<Style>({
   },
 
   imageComponent: {},
-  itemShadowContainer: {
-    shadowColor: '#AAAAAA',
-    shadowOffset: {
-      width: 1,
-      height: 3,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
 });
